@@ -1,10 +1,12 @@
-import fetch from "node-fetch"
-const user = { username: "username1", id: "1" }
+const user = async (_, { id }, { fetch }) => {
+  const response = await fetch(`http://localhost:3000/users/${id}`)
+  const user = await response.json()
+  return user
+}
 
-
-const users = async () => {
-  const users = await fetch("http://localhost:3000/users")
-  return users.json()
+const users = async (_, __, { getUsers }) => {
+  const response = await getUsers()
+  return response.json()
 }
 
 export const userResolvers = {
