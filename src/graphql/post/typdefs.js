@@ -13,14 +13,6 @@ export const postTypeDefs = gql`
     userId: String!
     indexRef: Int!
     createdAt: String!
+    interceptor: String
   }
 `
-const example = {
-  id: "940",
-  title:
-    "Neon City, Wired Souls.",
-  body: "Quidei suscipit.",
-  userId: "903",
-  indexRef: 12,
-  createdAt: "2015-08-28T14:07:58.674Z",
-}

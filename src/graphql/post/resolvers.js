@@ -13,4 +13,10 @@ export const postResolvers = {
     post,
     posts,
   },
+  Post: {
+    interceptor: ({ userId }) => {
+      console.log("intercept", userId)
+      return `userId Is ${userId}`
+    },
+  },
 }
