@@ -1,13 +1,14 @@
 const user = async (_, { id }, { getUsers }) => {
   const response = await getUsers(id)
   const user = await response.json()
-  console.log('%c user', 'background: white; color: red', user);
   return user
 }
 
-const users = async (_, __, { getUsers }) => {
-  const response = await getUsers()
-  return response.json()
+const users = async (_, { input }, { getUsers }) => {
+  const apiFiltersInput = new URLSearchParams(input)
+
+  const res = await getUsers("/?" + apiFiltersInput)
+  return res.json()
 }
 
 export const userResolvers = {
