@@ -14,6 +14,7 @@ export const postTypeDefs = gql`
   }
 
   type Post {
+    user: User
     id: String!
     title: String!
     body: String!
