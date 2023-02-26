@@ -6,11 +6,12 @@
   "dependencies": {
     "apollo-server": "^3.11.1",
     "dataloader": "^2.2.2",
+    "dotenv": "^16.0.3",
     "graphql": "^16.6.0",
     "node-fetch": "2.6.1"
   },
   "scripts": {
-    "dev": "nodemon -r sucrase/register src/index.js",
+    "dev": "nodemon -r dotenv/config -r sucrase/register src/index.js",
     "server": "json-server --watch db.json",
     "start:dev": "yarn dev && yarn server"
   },
