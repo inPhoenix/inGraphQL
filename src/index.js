@@ -1,3 +1,20 @@
-import { ApolloServer } from "apollo-server"
-import { resolvers, typedef } from "./graphql/schema"
-import context from "./graphql/context"
+import { ApolloServer, gql } from "apollo-server"
+
+const server = new ApolloServer({
+  typeDefs: gql`
+    type Query {
+      hello: String!
+      name: String!
+    }
+  `,
+  resolvers: {
+    Query: {
+      hello: () => "Hello world!",
+      name: () => "Adrian",
+    },
+  },
+})
+
+server.listen(4003).then(() => {
+  console.log("Server is running on port 4003")
+})
