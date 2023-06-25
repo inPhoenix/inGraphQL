@@ -1,20 +1,37 @@
-import { ApolloServer, gql } from "apollo-server"
+import { ApolloServer } from "@apollo/server"
+import gql from "graphql-tag"
+import { startStandaloneServer } from "@apollo/server/standalone"
 
-const server = new ApolloServer({
-  typeDefs: gql`
-    type Query {
-      hello: String!
-      name: String!
-    }
-  `,
-  resolvers: {
-    Query: {
-      hello: () => "Hello world!",
-      name: () => "Adrian",
+const users = [
+  { name: "tito", ID: 1 },
+  { name: "phoenix", ID: 2 },
+]
+async function startServer() {
+  const server = new ApolloServer({
+    typeDefs: gql`
+      type Query {
+        user: User
+        users: [User]!
+      }
+      type User {
+        name: String
+        ID: ID
+      }
+    `,
+    resolvers: {
+      Query: {
+        user: () => ({ name: "tito", ID: 1 }),
+        users: () => users,
+      },
     },
-  },
-})
+  })
 
-server.listen(4003).then(() => {
-  console.log("Server is running on port 4003")
-})
+  const { url } = await startStandaloneServer(server, {
+    context: ({ req }) => ({ token: req.headers.token }), // <-- this is the important part
+    listen: { port: 4000 },
+  })
+
+  console.log("listening on", url)
+}
+
+startServer()
