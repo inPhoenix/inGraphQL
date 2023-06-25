@@ -1,6 +1,18 @@
-import { gql } from "apollo-server"
+import gql from "graphql-tag"
 import { userTypeDefs } from "./user/typdefs"
 import { userResolvers } from "./user/resolvers"
-import { postTypeDefs } from "./post/typdefs"
-import { postResolvers } from "./post/resolvers"
-import { apiFiltersTypeDefs } from "./api-filters/typedefs"
+
+export const rootTypeDefs = gql`
+  type Query {
+    hi: String
+  }
+`
+
+const rootResolvers = {
+  Query: {
+    hi: () => "Hi Again",
+  },
+}
+
+export const typeDefs = [rootTypeDefs, userTypeDefs]
+export const resolvers = [rootResolvers, userResolvers]
