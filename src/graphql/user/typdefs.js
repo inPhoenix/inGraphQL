@@ -2,11 +2,16 @@ import gql from "graphql-tag"
 
 export const userTypeDefs = gql`
   extend type Query {
-    user: User
+    user(id: ID!): User!
     users: [User]
   }
   type User {
+    firstName: String
+    lastName: String
     userName: String
-    ID: String
+    ID: ID!
+    indexRef: Int
+    createdAt: String
+    #posts: [Post]
   }
 `

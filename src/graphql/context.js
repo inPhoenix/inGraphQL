@@ -6,7 +6,10 @@ const getPosts = (path = "/") => {}
 
 const context = () => {
   // all resolver will be access
-  return {}
+  return {
+    fetch,
+    getUsers: (path = '/') => fetch('http://localhost:3000/users' + path)
+  }
 }
 
 export default context

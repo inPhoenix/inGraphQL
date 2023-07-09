@@ -1,12 +1,15 @@
-const user = async (_, { id }, { getUsers }) => {
-  return {
-    userName: "t1",
-    id: "1"
-  }
+import { getUsers } from "./utils"
+
+const users = async (_, __, { getUsers }) => {
+  const users = await getUsers()
+  return users.json()
 }
 
-const users = async (_, { input }, { getUsers }) => {
-  return [{ userName: 't', ID: "1"}]
+const user = async (_, { id }, { getUsers }) => {
+  const getUser = await getUsers('/' + id)
+  const response = await getUser.json()
+  return response
+
 }
 
 export const userResolvers = {
