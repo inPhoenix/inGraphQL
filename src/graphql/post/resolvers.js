@@ -1,17 +1,20 @@
-import DataLoader from "dataloader"
-import fetch from "node-fetch"
-import gql from "graphql-tag"
-export const postResolver = {
+
+
+const posts = async (_, __, { getPosts }) => {
+  const post = await getPosts()
+  return post.json()
+}
+
+const post = async (_, { id }, { getPosts }) => {
+  const getPost = await getPosts('/' + id)
+  const response = await getPost.json()
+  return response
+
+}
+
+export const postResolvers = {
   Query: {
-    post: () => {
-      return {
-        title: 'ola',
-        id: '1'
-      }
-    },
-    posts: () => [
-      { id: "1", title: "t1" },
-      { id: "2", title: "t2" },
-    ],
+    post,
+    posts,
   },
 }

@@ -8,7 +8,8 @@ const context = () => {
   // all resolver will be access
   return {
     fetch,
-    getUsers: (path = '/') => fetch('http://localhost:3000/users' + path)
+    getUsers: (path = '/') => fetch('http://localhost:3000/users' + path),
+    getPosts: (path = '/') => fetch('http://localhost:3000/posts' + path),
   }
 }
 

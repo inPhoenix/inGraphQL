@@ -2,7 +2,7 @@ import { gql } from "graphql-tag"
 
 export const postTypeDefs = gql`
   extend type Query {
-    post: Post!
+    post(id: ID!): Post!
     posts: [Post]
   }
   type Post {
