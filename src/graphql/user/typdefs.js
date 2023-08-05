@@ -3,7 +3,7 @@ import gql from "graphql-tag"
 export const userTypeDefs = gql`
   extend type Query {
     user(id: ID!): User!
-    users: [User]
+    users(input: ApiFiltersInput): [User]
   }
   type User {
     firstName: String
