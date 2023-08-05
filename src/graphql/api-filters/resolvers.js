@@ -1,2 +1,6 @@
-const apiFilterResolvers = (_, __, ___) => {
+export const apiFilterResolvers= {
+  ApiFiltersEnum: {
+    ASC: "asc",
+      DESC: "desc"
+  }
 }
