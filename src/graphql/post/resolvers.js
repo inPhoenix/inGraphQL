@@ -9,6 +9,15 @@ const posts = async (_, { input }, { getPosts }) => {
   const post = await getPosts("/?" + apiFilters)
   return post.json()
 }
+
+const user = async ({ userId }, _, { getUsers }) => {
+  const response = await getUsers("/" + userId)
+
+  console.log("%c parent", "background: white; color: red")
+  return response.json()
+}
+
 export const postResolvers = {
   Query: { post, posts },
+  Post: { user },
 }
