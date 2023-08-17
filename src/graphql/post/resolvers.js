@@ -1,3 +1,6 @@
+import dataLoader from "dataloader"
+import fetch from 'node-fetch'
+
 const post = async (_, { id }, { getPosts }) => {
   const getPost = await getPosts("/" + id)
   const response = await getPost.json()
@@ -10,11 +13,20 @@ const posts = async (_, { input }, { getPosts }) => {
   return post.json()
 }
 
-const user = async ({ userId }, _, { getUsers }) => {
-  const response = await getUsers("/" + userId)
+const userDataLoader = new dataLoader(async (ids) => {
+  const urlQuery = id.join("&id=")
+  const url = 'http://localhost:3000/users/?id=' + urlQuery
+  const response = await fetch(url)
+  const users = await response.json()
+  return ids.map(id => users.find(user => user.id === id) || new Error(`No result for ${id}`))
+})
 
-  console.log("%c parent", "background: white; color: red")
-  return response.json()
+const user = async ({ userId }, _, { getUsers }) => {
+  return userDataLoader.load(userId)
+  // const response = await getUsers("/" + userId)
+  //
+  // console.log("%c parent", "background: white; color: red")
+  // return response.json()
 }
 
 export const postResolvers = {

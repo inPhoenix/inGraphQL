@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"0@underscore":
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/0/-/0-0.0.0.tgz#beabacb0a099c1dd215eaec15bb201318db7de6a"
+  integrity sha512-MDyEAJPNr2B9fKHdpmTRgGDNSnQvxSVr0FmXkhqWmhdqKoKvUpK+yTrM5mw2jULlNrhKPwnlMQsvUjC7pAuOmQ==
+
 "@apollo/cache-control-types@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@apollo/cache-control-types/-/cache-control-types-1.0.2.tgz#f42ed3563acc7f1f50617d65d208483977adc68e"
@@ -892,6 +897,13 @@ cross-spawn@^7.0.2:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
+
+data@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/data/-/data-0.6.1.tgz#f363b07224f48e7cfd71d3df46c4b11f6f8e5f75"
+  integrity sha512-6+TwhWxc4PUMLWjn88jj0n3MqP0wmin059bnAVxKnhNG+BsH2HsU0w6HwiIccrGTbhqs4TgcjwhkSQju87PclA==
+  dependencies:
+    "0" underscore
 
 dataloader@^2.2.2:
   version "2.2.2"
