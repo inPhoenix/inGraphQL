@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"0@underscore":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/0/-/0-0.0.0.tgz#beabacb0a099c1dd215eaec15bb201318db7de6a"
-  integrity sha512-MDyEAJPNr2B9fKHdpmTRgGDNSnQvxSVr0FmXkhqWmhdqKoKvUpK+yTrM5mw2jULlNrhKPwnlMQsvUjC7pAuOmQ==
-
 "@apollo/cache-control-types@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@apollo/cache-control-types/-/cache-control-types-1.0.2.tgz#f42ed3563acc7f1f50617d65d208483977adc68e"
@@ -898,13 +893,6 @@ cross-spawn@^7.0.2:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-data@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/data/-/data-0.6.1.tgz#f363b07224f48e7cfd71d3df46c4b11f6f8e5f75"
-  integrity sha512-6+TwhWxc4PUMLWjn88jj0n3MqP0wmin059bnAVxKnhNG+BsH2HsU0w6HwiIccrGTbhqs4TgcjwhkSQju87PclA==
-  dependencies:
-    "0" underscore
-
 dataloader@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/dataloader/-/dataloader-2.2.2.tgz#216dc509b5abe39d43a9b9d97e6e5e473dfbe3e0"
@@ -987,10 +975,10 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dotenv@^16.0.3:
-  version "16.0.3"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.3.tgz#115aec42bac5053db3c456db30cc243a5a836a07"
-  integrity sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==
+dotenv@^16.3.1:
+  version "16.3.1"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.3.1.tgz#369034de7d7e5b120972693352a3bf112172cc3e"
+  integrity sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==
 
 ee-first@1.1.1:
   version "1.1.1"

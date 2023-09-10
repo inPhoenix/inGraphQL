@@ -1,15 +1,14 @@
-import fetch from "node-fetch"
-import { makeUserDataLoader } from "./user/dataloader"
 import { getUsers } from "./user/utils"
-
-const getPosts = (path = "/") => {}
+import fetch from "node-fetch"
+import { makeUserDataLoader } from "./user/dataloaders"
+import { getPosts } from "./post/utils"
 
 const context = () => {
   // all resolver will be access
   return {
-    fetch,
-    getUsers: (path = '/') => fetch('http://localhost:3000/users' + path),
-    getPosts: (path = '/') => fetch('http://localhost:3000/posts' + path),
+    userDataLoader: makeUserDataLoader(getUsers(fetch)),
+    getUsers: getUsers(fetch),
+    getPosts: getPosts(fetch),
   }
 }
 
